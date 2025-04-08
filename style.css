@@ -1,0 +1,113 @@
+body {
+    font-family: sans-serif; /* Menggunakan font dasar yang mudah dibaca */
+    margin: 20px; /* Memberi sedikit jarak dari tepi browser */
+}
+
+h1 {
+    text-align: center; /* Membuat judul utama di tengah */
+    margin-bottom: 30px; /* Jarak bawah dari judul */
+}
+
+#video-gallery {
+    display: grid; /* Menggunakan layout grid untuk galeri */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Membuat kolom otomatis, lebar min 200px */
+    gap: 15px; /* Jarak antar item video */
+    align-items: start;
+}
+
+.video-item {
+    border: 1px solid #ccc; /* Memberi bingkai tipis pada setiap item */
+    padding: 10px;
+    text-align: center;
+    cursor: pointer; /* Mengubah kursor menjadi tangan saat di atas item */
+    transition: transform 0.2s ease; /* Efek transisi halus saat hover */
+}
+
+.video-item:hover {
+     transform: scale(1.03); /* Sedikit memperbesar item saat kursor di atasnya */
+}
+
+.video-item img {
+    max-width: 100%; /* Pastikan gambar thumbnail tidak lebih lebar dari wadahnya */
+    height: auto; /* Menjaga rasio aspek gambar */
+    margin-bottom: 5px; /* Jarak antara gambar dan judul */
+}
+
+.video-item p {
+    margin: 0; /* Menghapus margin default pada paragraf judul */
+    font-size: 0.9em; /* Ukuran font judul sedikit lebih kecil */
+}
+
+
+/* Styling untuk Area Pemutar Video */
+#player-area {
+    position: fixed; /* Membuatnya "melayang" di atas konten lain */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Latar belakang hitam transparan */
+    display: flex; /* Menggunakan flexbox untuk menengahkan video */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Memastikan tampil di atas elemen lain */
+}
+
+/* Styling untuk Penanda Status Video */
+#video-status-indicator {
+    position: absolute; /* Memposisikan relatif terhadap player-area */
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Latar belakang sedikit transparan */
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    border-radius: 3px;
+    z-index: 1001; /* Pastikan di atas video jika video fullscreen */
+}
+
+/* Styling untuk Tombol Lewati Iklan */
+#skip-ad-button {
+    position: absolute;
+    bottom: 70px; /* Posisikan dekat kontrol video bawah */
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 1px solid white;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1001;
+    opacity: 0.8; /* Sedikit transparan */
+    transition: opacity 0.2s ease;
+}
+
+#skip-ad-button:hover {
+    opacity: 1; /* Lebih jelas saat di-hover */
+}
+
+/* Aturan untuk menyembunyikan tombol skip (kita gunakan kelas .hidden) */
+#skip-ad-button.hidden {
+    display: none;
+}
+
+#player-area.hidden { /* Selector untuk class .hidden */
+    display: none; /* INI YANG PENTING: Menyembunyikan area pemutar */
+}
+
+#video-player {
+    max-width: 90%; /* Batasi lebar video maksimal 90% layar */
+    max-height: 80%; /* Batasi tinggi video maksimal 80% layar */
+}
+
+#close-player {
+    position: absolute; /* Memposisikan tombol tutup relatif terhadap player-area */
+    top: 20px;
+    right: 30px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

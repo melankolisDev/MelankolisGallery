@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Video Saya</title> <!-- Anda bisa mengganti judul ini -->
+    <link rel="stylesheet" href="style.css"> <!-- Menghubungkan ke file CSS -->
+</head>
+
+<body>
+
+    <h1>Galeri Video Saya</h1> <!-- Judul utama halaman -->
+
+    <!-- Area untuk menampilkan daftar thumbnail video -->
+    <div id="video-gallery">
+        <!-- Daftar video akan dimasukkan di sini oleh JavaScript -->
+        <p>Memuat video...</p>
+    </div>
+
+    <!-- Area untuk pemutar video (awalnya tersembunyi) -->
+    <div id="player-area" class="hidden">
+        <button id="close-player">X</button> <!-- Tombol untuk menutup -->
+        <div id="video-status-indicator">Sedang Memuat...</div>
+        <button id="skip-ad-button" class="hidden">Lewati Iklan »</button>
+        <video id="video-player" controls poster=""></video>
+        <!-- Atribut 'controls' menampilkan tombol play/pause, volume, dll. -->
+        <!-- Atribut 'poster' akan diisi dengan thumbnail saat video dipilih -->
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
